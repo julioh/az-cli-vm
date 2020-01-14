@@ -1,0 +1,9 @@
+alias az.vm.os.linux='az vm list \
+  --show-details \
+  --query "[?storageProfile.osDisk.osType=='\''Linux'\''].{VMName:name, \
+    Power:powerState, \
+    RG:resourceGroup, \
+    OS:storageProfile.imageReference.offer, \
+    Version:storageProfile.imageReference.sku, \
+    State:provisioningState}" \
+  -o table'
