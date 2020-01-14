@@ -1,0 +1,9 @@
+alias az.vm.os.windows='az vm list \
+  --show-details \
+  --query "[?storageProfile.osDisk.osType=='\''Windows'\''].{VMName:name, \
+    Power:powerState, \
+    RG:resourceGroup, \
+    OS:storageProfile.imageReference.offer, \
+    Version:storageProfile.imageReference.sku, \
+    State:provisioningState}" \
+  -o table'
